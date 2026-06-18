@@ -48,14 +48,40 @@ pip install -r requirements.txt
 3. Create `config.ini` with your Mist API credentials:
 ```ini
 [mist]
+# Required: Your Mist API token
+# Obtain from Mist Dashboard: Org → Settings → API Tokens
 api_token = YOUR_API_TOKEN_HERE
+
+# Required: Your Mist Organization ID
+# Found in Mist Dashboard: Org Settings
 org_id = YOUR_ORG_ID_HERE
+
+# Required: Mist API base URL
+# Standard: https://api.gc3.mist.com/api/v1
 base_url = https://api.gc3.mist.com/api/v1
 
-# Optional settings
+# Optional: Port to run the Flask server on (default: 80)
 port = 80
+
+# Optional: Email address shown in the support button
+# Users can click to send diagnostics to this address
 support_email = helpdesk@example.com
+
+# Optional: Enable debug logging (default: false)
+# Set to true to see verbose API calls and troubleshooting info
 debug_enabled = false
+
+# Optional: Custom explanatory text for WiFi clients (max 1000 characters)
+# wifi_info_text = The information shown here is how the WiFi network hears your client...
+
+# Optional: Custom explanatory text for wired clients (max 1000 characters)
+# wired_info_text = The information shown here is your wired Ethernet connection status...
+```
+
+Or copy the included template:
+```bash
+cp config.ini.example config.ini
+# Then edit config.ini with your credentials
 ```
 
 4. Run the application:
