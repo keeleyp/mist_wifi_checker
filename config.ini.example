@@ -1,0 +1,33 @@
+[mist]
+# Required: Your Mist API token
+# Obtain from Mist Dashboard: Org → Settings → API Tokens
+api_token = YOUR_API_TOKEN_HERE
+
+# Required: Your Mist Organization ID
+# Found in Mist Dashboard: Org Settings
+org_id = YOUR_ORG_ID_HERE
+
+# Required: Mist API base URL
+# Standard: https://api.gc3.mist.com/api/v1
+base_url = https://api.gc3.mist.com/api/v1
+
+# Optional: Port to run the Flask server on (default: 80)
+port = 80
+
+# Optional: Email address shown in the support button
+# Users can click to send diagnostics to this address
+support_email = helpdesk@example.com
+
+# Optional: Enable debug logging (default: false)
+# Set to true to see verbose API calls and troubleshooting info
+debug_enabled = false
+
+# Optional: Custom explanatory text for WiFi clients
+# Shown in the info modal on simple view (max 1000 characters)
+# Uncomment to override default text
+# wifi_info_text = The information shown here is how the WiFi network hears your client. RSSI (signal strength) and SNR (signal quality) are measured at the access point. Throughput is the current data rate. Retries indicate packet loss.
+
+# Optional: Custom explanatory text for wired clients
+# Shown in the info modal on simple view (max 1000 characters)
+# Uncomment to override default text
+# wired_info_text = The information shown here is your wired Ethernet connection status. Link speed is the negotiated port speed. Link status shows if the port is active. PoE indicates if power is being supplied. Throughput is the current data rate.
