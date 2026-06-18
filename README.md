@@ -10,10 +10,10 @@ A self-service Flask web application that enables clients connected to Juniper M
 - No manual MAC address or IP entry required — automatically detects client via HTTP source IP
 
 📊 **Real-Time Statistics**
-- **Wireless clients**: RSSI, SNR, throughput, retry rate, connection duration, roaming history
-- **Wired clients**: Link speed, link status, PoE details, throughput, port information
-- Signal quality visualization and data throughput charts
-- Session data summary
+- **Wireless clients**: RSSI, SNR, throughput, retry rate (with color-coded severity), connection duration, roaming history with AP names
+- **Wired clients**: Link speed, link status, PoE details, power draw, port errors, throughput, port information, hostname
+- Signal quality visualization (TX/RX ratio) and data throughput charts
+- Session data summary bar (wireless and wired)
 
 🔧 **Diagnostic Integration**
 - One-click Marvis AI troubleshooting (7-day and 1-hour options)
@@ -36,8 +36,8 @@ A self-service Flask web application that enables clients connected to Juniper M
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/mist-wifi-checker.git
-cd mist-wifi-checker
+git clone https://github.com/keeleyp/mist_wifi_checker.git
+cd mist_wifi_checker
 ```
 
 2. Install dependencies:
@@ -117,15 +117,15 @@ Create a `Dockerfile` if needed for containerized deployment.
 
 ```
 mist_wifi_checker/
-├── app.py                    # Main Flask application (~1700 lines)
-├── config.ini               # Configuration file (template included)
-├── requirements.txt         # Python dependencies
-├── setup_pi.sh             # Raspberry Pi systemd setup script
-├── deploy.sh               # Deployment helper script
-├── README.md               # This file
-└── docs/
-    ├── MistWiFiChecker_InstallGuide.docx
-    └── MistWiFiChecker_UserGuide.docx
+├── app.py                      # Main Flask application (~1700 lines)
+│                               # Includes SIMPLE_TEMPLATE and EXPERT_TEMPLATE
+├── config.ini.example          # Configuration template (copy to config.ini and fill in credentials)
+├── requirements.txt            # Python dependencies (Flask, Requests, Gunicorn)
+├── setup_pi.sh                 # Raspberry Pi systemd service setup script
+├── deploy.sh                   # Deployment helper script
+├── README.md                   # This documentation
+├── CHANGELOG.md                # Version history and feature list
+└── LICENSE                     # MIT License
 ```
 
 ## Usage
@@ -181,7 +181,7 @@ See `requirements.txt`:
 
 ## License
 
-[Add appropriate license here]
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
