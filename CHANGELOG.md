@@ -5,6 +5,21 @@ All notable changes to the Mist WiFi Checker project will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-11-13
+
+### Fixed
+- `setup_pi.sh` now uses `config.ini` (which the app actually reads) instead of creating an unused `.env`, and runs the app on the port set in `config.ini` (default 80) instead of a hard-coded Gunicorn on 8080
+- The service runs as a normal user with `CAP_NET_BIND_SERVICE`, so port 80 works without root
+- `setup_pi.sh` rebuilds a broken `.venv` (for example after a Python upgrade) and works from whatever folder the app is in
+- `deploy.sh` no longer copies a local `config.ini` or `.env` over the Pi's, and reports the right URL
+
+### Added
+- `USER_GUIDE.md` and `docs/MistWiFiChecker_UserGuide.pdf`: end-user guide with screenshots of each screen (sample data)
+
+### Removed
+- Unused `.env.example`
+- `config.ini` is now in `.gitignore` so API tokens can't be committed
+
 ## [1.0.0] - 2026-06-18
 
 ### Features

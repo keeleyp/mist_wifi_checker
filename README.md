@@ -109,16 +109,33 @@ The app will start on `http://localhost:80` (or your configured port).
 
 ### Raspberry Pi / Linux Server
 
-Use the included `setup_pi.sh` script for systemd service setup:
+Copy the app folder to the Pi, create `config.ini` from `config.ini.example`, then run the setup script from that folder as your normal user (not with `sudo`; it calls `sudo` itself where needed):
 
 ```bash
-sudo bash setup_pi.sh
+cp config.ini.example config.ini   # then add api_token, org_id, base_url
+bash setup_pi.sh
 ```
 
 This will:
-- Install systemd service for auto-start
-- Configure Gunicorn for production use
-- Enable the service to run on boot
+- Create (or rebuild, if broken) the Python virtual environment in `.venv`
+- Create `config.ini` from the example if it is missing
+- Install and enable the `mist-wifi-checker` systemd service, so the app starts on boot and restarts if it crashes
+- Run the app as your user while allowing it to listen on port 80 (`CAP_NET_BIND_SERVICE`), with no root needed
+
+The app reads all settings, including `port`, from `config.ini` each time it starts. After editing it:
+
+```bash
+sudo systemctl restart mist-wifi-checker
+```
+
+From a Mac or Linux machine you can instead run `./deploy.sh <pi-ip> <user>`, which copies the files (never your `config.ini`) and runs `setup_pi.sh` for you.
+
+Useful commands:
+
+```bash
+sudo systemctl status mist-wifi-checker --no-pager
+sudo journalctl -u mist-wifi-checker -f
+```
 
 ### Docker (Optional)
 
@@ -149,6 +166,7 @@ mist_wifi_checker/
 ├── requirements.txt            # Python dependencies (Flask, Requests, Gunicorn)
 ├── setup_pi.sh                 # Raspberry Pi systemd service setup script
 ├── deploy.sh                   # Deployment helper script
+├── USER_GUIDE.md               # End-user guide with screen examples
 ├── README.md                   # This documentation
 ├── CHANGELOG.md                # Version history and feature list
 └── LICENSE                     # MIT License
