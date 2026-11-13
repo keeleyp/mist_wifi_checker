@@ -5,7 +5,7 @@ All notable changes to the Mist WiFi Checker project will be documented in this 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.1] - 2026-11-13
+## [1.1.1] - 2026-11-13
 
 ### Fixed
 - `setup_pi.sh` now uses `config.ini` (which the app actually reads) instead of creating an unused `.env`, and runs the app on the port set in `config.ini` (default 80) instead of a hard-coded Gunicorn on 8080
