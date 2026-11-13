@@ -182,6 +182,14 @@ mist_wifi_checker/
 5. Click "Run Marvis" to diagnose issues
 6. Click "Email Support" to send diagnostics to your IT team
 
+### Checking another device
+Add a device's IP address to the end of the URL to look it up instead of the device you're browsing from:
+
+- Simple mode: `http://<checker>/<ip>`, for example `http://172.16.0.11/10.0.0.21`
+- Expert mode: `http://<checker>/expert/<ip>`, for example `http://172.16.0.11/expert/10.0.0.21`
+
+Expert mode shows **(manual lookup)** next to the IP address. The IP is kept when switching modes or refreshing. Anyone who can reach the checker can do this, so host it only where showing that client data is acceptable.
+
 ### For Administrators
 - Monitor which clients are accessing the application
 - Use debug logs to troubleshoot connection issues

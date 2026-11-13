@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `deploy.sh` no longer copies a local `config.ini` or `.env` over the Pi's, and reports the right URL
 
 ### Added
+- Documented looking up another device by adding its IP address to the URL (`/<ip>` and `/expert/<ip>`)
 - `USER_GUIDE.md` and `docs/MistWiFiChecker_UserGuide.pdf`: end-user guide with screenshots of each screen (sample data)
 
 ### Removed
