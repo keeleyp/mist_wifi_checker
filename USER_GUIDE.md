@@ -14,7 +14,8 @@ Mist WiFi Checker is a web page that shows how the network sees **your** device 
 6. [Asking Marvis to troubleshoot](#6-asking-marvis-to-troubleshoot)
 7. [Emailing support](#7-emailing-support)
 8. [When your device isn't found](#8-when-your-device-isnt-found)
-9. [Quick reference](#9-quick-reference)
+9. [Checking another device](#9-checking-another-device)
+10. [Quick reference](#10-quick-reference)
 
 ## 1. Opening the checker
 
@@ -124,7 +125,24 @@ If your device was recently on Wi-Fi but isn't now, you'll see this message inst
 
 If you've moved to a network cable, Mist needs Wired Assurance turned on to find wired devices. Ask your network team if this keeps happening.
 
-## 9. Quick reference
+## 9. Checking another device
+
+Normally the checker shows the device you're browsing from. To look at a different device, for example a printer, a phone that can't open a browser, or a user you're helping remotely, add that device's IP address to the end of the address:
+
+| To see | Use this address |
+|---|---|
+| Simple mode for 10.0.0.21 | `http://172.16.0.11/10.0.0.21` |
+| Expert mode for 10.0.0.21 | `http://172.16.0.11/expert/10.0.0.21` |
+
+Replace `172.16.0.11` with your checker's address and `10.0.0.21` with the IP address of the device you want to check. You can find a device's IP address in its network settings or in the Mist dashboard.
+
+Expert mode marks the page **manual lookup**, so it's clear you're looking at a device other than your own:
+
+![Expert mode showing a manual lookup](docs/images/manual-lookup.png)
+
+The device's IP address stays in the address when you switch between **Simple Mode** and **Expert Mode**, or select **Refresh**. Everything else works as normal, including Marvis and **Email Support**. To go back to your own device, remove the IP address from the end of the address.
+
+## 10. Quick reference
 
 | To... | Do this |
 |---|---|
@@ -134,4 +152,4 @@ If you've moved to a network cable, Mist needs Wired Assurance turned on to find
 | Pause updates (expert mode) | Select the **auto-refresh** counter |
 | Find out what's wrong | Select **Marvis — Last Hour**, or **Marvis — Last 7 Days** for an on-and-off problem |
 | Report a problem | Select **Email Support**, describe the problem, and send it |
-| Check another device (network team) | Add its IP address to the address, for example `/expert/10.0.0.21`. The page shows **manual lookup**. |
+| Check another device | Add its IP address to the end of the address, for example `/10.0.0.21` or `/expert/10.0.0.21` |
