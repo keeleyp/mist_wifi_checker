@@ -35,6 +35,9 @@ rsync -avz --progress \
   --exclude '__pycache__' \
   --exclude '*.pyc' \
   --exclude 'deploy.sh' \
+  --exclude '.git' \
+  --exclude 'config.ini' \
+  --exclude '.env' \
   "$(dirname "$0")/" \
   "${REMOTE}:${REMOTE_DIR}/"
 
@@ -47,7 +50,7 @@ ssh ${SSH_OPTS} "${REMOTE}" "bash ${REMOTE_DIR}/setup_pi.sh ${PI_USER}"
 ssh -O exit -o ControlPath="${SSH_SOCKET}" "${REMOTE}" 2>/dev/null || true
 
 echo ""
-echo "✅  Done!  The service is running on http://${PI_HOST}:8080"
+echo "✅  Done!  The service is running on http://${PI_HOST}/  (port from config.ini, default 80)"
 echo ""
 echo "   Useful commands on the Pi:"
 echo "   sudo systemctl status mist-wifi-checker"
